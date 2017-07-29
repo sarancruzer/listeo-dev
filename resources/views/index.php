@@ -50,6 +50,11 @@
     <script src="app/router.js"></script>
     <script src="app/modules/auth/controllers/authController.js"></script>
     <script src="app/modules/auth/controllers/logoutController.js"></script>
+
+    <script src="app/modules/listing/controllers/addListingController.js"></script>
+
+    
+
         
 
 </html>

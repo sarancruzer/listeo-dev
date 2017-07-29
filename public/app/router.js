@@ -6,9 +6,12 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
             // Redirect to the auth state if any other states
             // are requested other than users
             $urlRouterProvider.otherwise('/auth');
-            $stateProvider
-            .state('layout', {
-                    templateUrl: '/app/modules/shared/template.html',
+              $stateProvider
+                .state('layout', {
+                    templateUrl: '/app/shared/template.html',
+                })
+                .state('adminLayout', {
+                    templateUrl: '/app/shared/adminTemplate.html',
                 })
                 .state('auth', {
                     url: '/auth',
@@ -19,30 +22,53 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
                     url:'/logout',
                     controller:'logoutController as logout',
                 })
-               
-                .state('layout.profile',{
-                  url : '/profile',
-                  templateUrl:'/app/modules/profile/views/_profile.html',
-                  controller : 'profileController as profile'
+               .state('adminLayout.addListing',{
+                  url : '/addListing',
+                  templateUrl:'/app/modules/listing/views/_addListing.html',
+                  controller : 'addListingController as addListing'
                 })
-                .state('layout.supplierList',{
-                  url : '/supplierList',
-                  templateUrl : '/app/modules/supplier/views/_supplierList.html',
-                  controller : 'manageSupplierController as manageSupplier',
-                  pageTitile : 'Suppliers'
+                .state('adminLayout.message',{
+                  url : '/message',
+                  templateUrl : '/app/modules/message/views/_message.html',
+                  controller : 'messageController as message',
+                  pageTitile : 'Message'
+                })                
+                .state('adminLayout.mylisting',{
+                  url : '/mylisting',
+                  templateUrl : '/app/modules/listing/views/_myListing.html',
+                  controller: 'mylistingController as mylisting',
+                  pageTitle : 'My Listing'
+                })  
+                   .state('adminLayout.reviews',{
+                  url : '/reviews',
+                  templateUrl : '/app/modules/reviews/views/_reviews.html',
+                  controller: 'reviewsController as reviews',
+                  pageTitle : 'My Listing'
+                })                
+                .state('adminLayout.bookmarks',{
+                  url : '/bookmarks',
+                  templateUrl : '/app/modules/bookmarks/views/_bookmarks.html',
+                  controller: 'bookmarksController as bookmarks',
+                  pageTitle : 'bookmarks'
+                }) 
+                .state('adminLayout.myprofile',{
+                  url : '/myprofile',
+                  templateUrl : '/app/modules/myprofile/views/_myprofile.html',
+                  controller: 'myprofileController as myprofile',
+                  pageTitle : 'myprofile'
                 })
-                .state('layout.supplierAdd',{
-                  url : '/supplierAdd',
-                  templateUrl : '/app/modules/supplier/views/_supplierAdd.html',
-                  controller: 'supplierAddController as addSupplier',
-                  pageTitle : 'Add Supplier'
-                })
-                .state('layout.supplierEdit',{
+                .state('adminLayout.dashboard',{
+                  url : '/dashboard',
+                  templateUrl : '/app/modules/dashboard/views/_dashboard.html',
+                  controller: 'dashboardController as dashboard',
+                  pageTitle : 'dashboard'
+                })               
+                 .state('layout.supplierEdit',{
                   url:'/supplierEdit/:id',
                   templateUrl:'/app/modules/supplier/views/_supplierEdit.html',
                   controller:'supplierEditController as supplierEdit',
                   pageTitle:'Edit Supplier'
-                })
+                });
                 
 
         });
@@ -56,10 +82,11 @@ app.run(['$rootScope', '$location','$auth','$state', function ($rootScope, $loca
 
     $rootScope.$on( "$locationChangeStart", function(event, next, current) {
       if (!$auth.isAuthenticated()) {
-        if($location.path() != "/auth"){
+        if($location.path() == "/auth"){
            $location.path("/auth");
         }       
         $rootScope.authenticated = false;
+        $rootScope.userType = "admin";
       }
       else
       { 
@@ -77,7 +104,7 @@ app.run(['$rootScope', '$location','$auth','$state', function ($rootScope, $loca
   });
 
 
-
+  $rootScope.userType = "admin";  
   $rootScope.userType = localStorage.getItem('userType');
   $rootScope.userId = localStorage.getItem('userId');
   $rootScope.usename = localStorage.getItem('usename');

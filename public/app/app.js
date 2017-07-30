@@ -1,4 +1,4 @@
 
-var app =  angular.module('listeoApp', ['ui.router', 'satellizer']);
+var app =  angular.module('listeoApp', ['ui.router', 'satellizer','ngValidate']);
 
 

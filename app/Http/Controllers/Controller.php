@@ -10,6 +10,11 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
+    
+    function __construct() {
+    
+        $this->list_count = 5;	
+	    
+	}
            
 }

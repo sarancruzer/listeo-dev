@@ -63,12 +63,43 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
                   controller: 'dashboardController as dashboard',
                   pageTitle : 'dashboard'
                 })               
-                 .state('layout.supplierEdit',{
-                  url:'/supplierEdit/:id',
-                  templateUrl:'/app/modules/supplier/views/_supplierEdit.html',
-                  controller:'supplierEditController as supplierEdit',
-                  pageTitle:'Edit Supplier'
+                 .state('adminLayout.amenities',{
+                  url:'/amenities',
+                  templateUrl:'/app/modules/masters/amenities/views/_amenities.html',
+                  controller:'amenitiesController as amenities',
+                  pageTitle:'Amenities'
+                })
+                .state('adminLayout.category',{
+                  url:'/category',
+                  templateUrl:'/app/modules/masters/category/views/_category.html',
+                  controller:'categoryController as category',
+                  pageTitle:'Category'
+                })
+                .state('adminLayout.city',{
+                  url:'/city',
+                  templateUrl:'/app/modules/masters/city/views/_city.html',
+                  controller:'cityController as city',
+                  pageTitle:'City'
+                })
+               .state('adminLayout.state',{
+                  url:'/state',
+                  templateUrl:'/app/modules/masters/state/views/_state.html',
+                  controller:'stateController as state',
+                  pageTitle:'State'
+                })
+                .state('adminLayout.time',{
+                  url:'/time',
+                  templateUrl:'/app/modules/masters/time/views/_time.html',
+                  controller:'timeController as time',
+                  pageTitle:'Time'
+                })
+                .state('adminLayout.weekdays',{
+                  url:'/weekdays',
+                  templateUrl:'/app/modules/masters/weekdays/views/_weekdays.html',
+                  controller:'weekdaysController as weekdays',
+                  pageTitle:'Weekdays'
                 });
+                
                 
 
         });
@@ -111,5 +142,6 @@ app.run(['$rootScope', '$location','$auth','$state', function ($rootScope, $loca
   $rootScope.userTypeId = localStorage.getItem('userTypeId');
   $rootScope.paginate = localStorage.getItem('paginate');
   $rootScope.avatar = localStorage.getItem('avatar');
+  $rootScope.showTime = 5000;
 
 }]);

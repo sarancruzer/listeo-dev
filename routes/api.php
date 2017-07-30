@@ -21,15 +21,27 @@ Route::get('/user', function (Request $request) {
 
 Route::group(["middleware"=>"cors"], function(){
 
-			
-
 			Route::post('authenticate', 'AuthenticateController@authenticate');
 
+			Route::post('getAmenities', 'MasterController@getAmenities');
+			Route::post('getCategory', 'MasterController@getCategory');
+			Route::post('getCity', 'MasterController@getCity');
+			Route::post('getState', 'MasterController@getState');
+			Route::post('getTime', 'MasterController@getTime');
+			Route::post('getWeekdays', 'MasterController@getWeekdays');
+
+			Route::post('submitMasterAmenities', 'MasterController@submitMasterAmenities');	
+			Route::post('submitMasterCategory', 'MasterController@submitMasterCategory');	
+			Route::post('submitMasterCity', 'MasterController@submitMasterCity');	
+			Route::post('submitMasterState', 'MasterController@submitMasterState');	
+			Route::post('submitMasterTime', 'MasterController@submitMasterTime');	
+			Route::post('submitMasterWeekdays', 'MasterController@submitMasterWeekdays');	
+			
 
 Route::group(["middleware"=>"jwt.auth"], function(){
 
 			
-			Route::post('getUsers', 'AuthenticateController@getUsers');		
+				
 
 			Route::post('getSupplierList', 'SupplierController@getSupplierList');		
 			Route::post('supplierAdd', 'SupplierController@supplierAdd');		

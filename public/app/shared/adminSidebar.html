@@ -8,18 +8,21 @@
         <div class="dashboard-nav-inner">
 
             <ul data-submenu-title="Main">
-                <li><a href="#/dashboard"><i class="sl sl-icon-settings"></i> Dashboard</a></li>
-                <li><a href="#/messages"><i class="sl sl-icon-envelope-open"></i> Messages <span class="nav-tag messages">2</span></a></li>
+                <li ng-class="url == '/dashboard' ? 'active':''"><a href="#/dashboard"><i class="sl sl-icon-settings"></i> Dashboard</a></li>
+                <li ng-class="url == '/message' ? 'active':''"><a href="#/message"><i class="sl sl-icon-envelope-open"></i> Messages <span class="nav-tag messages">2</span></a></li>
+            </ul>
+
+             <ul data-submenu-title="Masters">
+                <li><a href="#/amenities"><i class="sl sl-icon-settings"></i> Amenities</a></li>
+                <li><a href="#/category"><i class="sl sl-icon-envelope-open"></i> Category </a></li>
+                <li><a href="#/city"><i class="sl sl-icon-envelope-open"></i> City </a></li>
+                <li><a href="#/state"><i class="sl sl-icon-envelope-open"></i> State </a></li>
+                <li><a href="#/time"><i class="sl sl-icon-envelope-open"></i> Time </a></li>
+                <li><a href="#/weekdays"><i class="sl sl-icon-envelope-open"></i> Weekdays </a></li>
             </ul>
             
             <ul data-submenu-title="Listings">
-                <li><a><i class="sl sl-icon-layers"></i> My Listings</a>
-                    <ul>
-                        <li><a href="#/mylisting">Active <span class="nav-tag green">6</span></a></li>
-                        <li><a href="#/mylisting">Pending <span class="nav-tag yellow">1</span></a></li>
-                        <li><a href="#/mylisting">Expired <span class="nav-tag red">2</span></a></li>
-                    </ul>   
-                </li>
+                <li><a href="#/mylisting"><i class="sl sl-icon-layers"></i> Manage Listing</a></li>
                 <li><a href="#/reviews"><i class="sl sl-icon-star"></i> Reviews</a></li>
                 <li><a href="#/bookmarks"><i class="sl sl-icon-heart"></i> Bookmarks</a></li>
                 <li class="active"><a href="#/addListing"><i class="sl sl-icon-plus"></i> Add Listing</a></li>
@@ -33,3 +36,5 @@
         </div>
     </div>
     <!-- Navigation / End -->
+
+    <script type="text/javascript" src="assets/ui/scripts/custom.js"></script>

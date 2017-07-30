@@ -1,0 +1,142 @@
+    
+
+<div class="row">
+
+  <div class="notification error closeable" ng-show="mError">
+				<p><span>Error!</span> {{mError}}</p>
+				
+			</div>
+
+			<div class="notification success closeable" ng-show="mSuccess">
+				<p><span>Success!</span>{{mSuccess}}</p>
+			
+      </div>
+      
+
+  <div class="col-md-4">
+ <div class="add-listing-section ">
+
+						<!-- Headline -->
+						<div class="add-listing-headline">
+							<h3><i class="sl sl-icon-location"></i> Category</h3>
+						</div>
+
+						<div class="submit-section">
+             <form name="masterForm" method="post" ng-submit="submitMaster(masterForm)" ng-validate="validationOptions"  >
+							<!-- Row -->
+							<div class="row with-forms">
+
+										<!-- Address -->
+								<div class="col-md-12">
+									<h5>Name</h5>
+									<input type="text" placeholder="Enter amenities" name="amenities" ng-model="master.name" >
+                </div>
+                
+                <div class="col-md-12">
+                  <h5>.</h5>
+									<button type="submit" class="button border ">submit</button>
+                </div>
+                
+
+							</div>
+              <!-- Row / End -->
+              </form>
+
+						</div>
+					</div>
+          
+  </div>
+
+
+  <div class="col-md-8">
+          <div class="add-listing-section">
+
+						<!-- Headline -->
+						<div class="add-listing-headline">
+						<input type="text" placeholder="Search here..." ng-model="q" >
+						</div>
+
+          <table class="basic-table">
+
+        <thead >
+       	<tr>
+					<th>#</th>
+          <th>Name</th>
+          <th>Last modified</th>
+          <th width="80">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="detail in details">
+          <td scope="row">{{$index+1}}</td>
+          <td>{{detail.name}}</td>
+          <td>{{detail.updated_at }}</td>
+          <td>
+             
+              <a href="javascript:;" class="button border with-icon " ng-click="editMaster(detail)" ><i class="fa fa-edit"></i> </a>
+               <a href="#delete-in-dialog" class="button border with-icon "><i class="fa fa-trash-o"></i> </a>
+          </td>          
+         
+        </tr> 
+        </tbody>
+
+			
+			</table>
+            
+          </div>
+
+
+             <div class="pagination-container margin-top-30 margin-bottom-0">
+               	<nav class="pagination">
+      <ul >
+        <li ng-show="currentPage != 1"><a href="javascript:void(0)" ng-click="init(1)">&laquo;</a></li>
+        <li ng-show="currentPage != 1"><a href="javascript:void(0)" ng-click="init(currentPage-1)">&lsaquo; Prev</a></li>
+        <li ng-repeat="i in range" ><a href="javascript:void(0)" ng-class="{'current-page' : currentPage == i}" ng-click="init(i)">{{i}}</a>
+        </li>
+        <li ng-show="currentPage != totalPages"><a href="javascript:void(0)" ng-click="init(currentPage+1)">Next &rsaquo;</a></li>
+        <li ng-show="currentPage != totalPages"><a href="javascript:void(0)" ng-click="init(totalPages)">&raquo;</a></li>
+      </ul>
+               	</nav>
+    </div>
+
+
+  </div>     
+       
+
+ 
+
+
+      
+
+      <!-- Scripts -->
+
+
+
+
+<style>
+
+.customdialog {
+    max-width: 500px;
+        background: #fff;
+    padding: 40px;
+    padding-top: 0;
+    text-align: left;
+    max-width: 610px;
+    margin: 40px auto;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 4px;
+        color: #fff;
+}
+
+.small-dialog-header{
+  margin-bottom: 0px;
+}
+
+.add-listing-headline {
+    padding: 10px 10px;
+}
+  .button{
+    width : 100%
+}
+</style>

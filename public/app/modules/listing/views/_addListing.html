@@ -25,7 +25,7 @@
 							<!-- Status -->
 							<div class="col-md-6">
 								<h5>Category</h5>
-								<select class="chosen-select-no-single" >
+								<select class="chosen-select-no-single" name="category" ng-model="category" ng-options="item.id as item.name for item in categoryList ">
 									<option label="blank">Select Category</option>	
 									<option>Eat & Drink</option>
 									<option>Shops</option>
@@ -64,7 +64,7 @@
 								<!-- City -->
 								<div class="col-md-6">
 									<h5>City</h5>
-									<select class="chosen-select-no-single" >
+									<select class="chosen-select-no-single" name="city" ng-model="city" ng-options="item.id as item.name for item in cityList ">
 										<option label="blank">Select City</option>	
 										<option>New York</option>
 										<option>Los Angeles</option>
@@ -85,7 +85,7 @@
 								<!-- City -->
 								<div class="col-md-6">
 									<h5>State</h5>
-									<input type="text">
+									<input type="text" ng-model="state">
 								</div>
 
 								<!-- Zip-Code -->
@@ -130,7 +130,7 @@
 						<!-- Description -->
 						<div class="form">
 							<h5>Description</h5>
-							<textarea class="WYSIWYG" name="summary" cols="40" rows="3" id="summary" spellcheck="true"></textarea>
+							<textarea class="WYSIWYG" name="description" cols="40" rows="3" id="summary" spellcheck="true" ng-model="description"></textarea>
 						</div>
 
 						<!-- Row -->
@@ -139,19 +139,19 @@
 							<!-- Phone -->
 							<div class="col-md-4">
 								<h5>Phone <span>(optional)</span></h5>
-								<input type="text">
+								<input type="text" name="phone" ng-model="phone" >
 							</div>
 
 							<!-- Website -->
 							<div class="col-md-4">
 								<h5>Website <span>(optional)</span></h5>
-								<input type="text">
+								<input type="text" name="website" ng-model="website">
 							</div>
 
 							<!-- Email Address -->
 							<div class="col-md-4">
 								<h5>E-mail <span>(optional)</span></h5>
-								<input type="text">
+								<input type="text" name="email" ng-model="email">
 							</div>
 
 						</div>
@@ -164,19 +164,19 @@
 							<!-- Phone -->
 							<div class="col-md-4">
 								<h5 class="fb-input"><i class="fa fa-facebook-square"></i> Facebook <span>(optional)</span></h5>
-								<input type="text" placeholder="https://www.facebook.com/">
+								<input type="text" placeholder="https://www.facebook.com/" name="facebook" ng-model="facebook">
 							</div>
 
 							<!-- Website -->
 							<div class="col-md-4">
 								<h5 class="twitter-input"><i class="fa fa-twitter"></i> Twitter <span>(optional)</span></h5>
-								<input type="text" placeholder="https://www.twitter.com/">
+								<input type="text" placeholder="https://www.twitter.com/" name="twitter" ng-model="twitter">
 							</div>
 
 							<!-- Email Address -->
 							<div class="col-md-4">
 								<h5 class="gplus-input"><i class="fa fa-google-plus"></i> Google Plus <span>(optional)</span></h5>
-								<input type="text" placeholder="https://plus.google.com">
+								<input type="text" placeholder="https://plus.google.com" name="googleplus" ng-model="googleplus">
 							</div>
 
 						</div>
@@ -185,32 +185,13 @@
 
 						<!-- Checkboxes -->
 						<h5 class="margin-top-30 margin-bottom-10">Amenities <span>(optional)</span></h5>
-						<div class="checkboxes in-row margin-bottom-20">
-					
+						<div class="checkboxes in-row margin-bottom-20" style="min-height:300px;">
+							
+							<div class="col-md-3" ng-repeat="row in amenitiesList">
 							<input id="check-a" type="checkbox" name="check">
-							<label for="check-a">Elevator in building</label>
-
-							<input id="check-b" type="checkbox" name="check">
-							<label for="check-b">Friendly workspace</label>
-
-							<input id="check-c" type="checkbox" name="check">
-							<label for="check-c">Instant Book</label>
-
-							<input id="check-d" type="checkbox" name="check">
-							<label for="check-d">Wireless Internet</label>
-
-							<input id="check-e" type="checkbox" name="check" >
-							<label for="check-e">Free parking on premises</label>
-
-							<input id="check-f" type="checkbox" name="check" >
-							<label for="check-f">Free parking on street</label>
-
-							<input id="check-g" type="checkbox" name="check">
-							<label for="check-g">Smoking allowed</label>	
-
-							<input id="check-h" type="checkbox" name="check">
-							<label for="check-h">Events</label>
-					
+							<label for="check-a">{{row.name}}</label>
+							</div>
+				
 						</div>
 						<!-- Checkboxes / End -->
 
@@ -232,167 +213,23 @@
 						<div class="switcher-content">
 
 							<!-- Day -->
-							<div class="row opening-day">
-								<div class="col-md-2"><h5>Monday</h5></div>
+							<div class="row opening-day" ng-repeat="row in weekdaysList">
+								<div class="col-md-2"><h5>{{row.name}}</h5></div>
 								<div class="col-md-5">
-									<select class="chosen-select" data-placeholder="Opening Time">
+									<input type="hidden" ng-model="weekdays">
+									<select class="chosen-select" name="city" ng-model="openingTime" ng-options="item.id as item.name for item in timeList " data-placeholder="Opening Time">
 										<option label="Opening Time"></option>
-										<option>Closed</option>
-										<option>1 AM</option>
-										<option>2 AM</option>
-										<option>3 AM</option>
-										<option>4 AM</option>
-										<option>5 AM</option>
-										<option>6 AM</option>
-										<option>7 AM</option>
-										<option>8 AM</option>
-										<option>9 AM</option>
-										<option>10 AM</option>
-										<option>11 AM</option>
-										<option>12 AM</option>	
-										<option>1 PM</option>
-										<option>2 PM</option>
-										<option>3 PM</option>
-										<option>4 PM</option>
-										<option>5 PM</option>
-										<option>6 PM</option>
-										<option>7 PM</option>
-										<option>8 PM</option>
-										<option>9 PM</option>
-										<option>10 PM</option>
-										<option>11 PM</option>
-										<option>12 PM</option>
 									</select>
 								</div>
 								<div class="col-md-5">
-									<select class="chosen-select" data-placeholder="Closing Time">
+									<select class="chosen-select" name="city" ng-model="closingTime" ng-options="item.id as item.name for item in timeList " data-placeholder="Closing Time">
 										<option label="Closing Time"></option>
-										<option>Closed</option>
-										<option>1 AM</option>
-										<option>2 AM</option>
-										<option>3 AM</option>
-										<option>4 AM</option>
-										<option>5 AM</option>
-										<option>6 AM</option>
-										<option>7 AM</option>
-										<option>8 AM</option>
-										<option>9 AM</option>
-										<option>10 AM</option>
-										<option>11 AM</option>
-										<option>12 AM</option>	
-										<option>1 PM</option>
-										<option>2 PM</option>
-										<option>3 PM</option>
-										<option>4 PM</option>
-										<option>5 PM</option>
-										<option>6 PM</option>
-										<option>7 PM</option>
-										<option>8 PM</option>
-										<option>9 PM</option>
-										<option>10 PM</option>
-										<option>11 PM</option>
-										<option>12 PM</option>
+										
 									</select>
 								</div>
 							</div>
 							<!-- Day / End -->
-
-							<!-- Day -->
-							<div class="row opening-day js-demo-hours">
-								<div class="col-md-2"><h5>Tuesday</h5></div>
-								<div class="col-md-5">
-									<select class="chosen-select" data-placeholder="Opening Time">
-										<!-- Hours added via JS (this is only for demo purpose) -->
-									</select>
-								</div>
-								<div class="col-md-5">
-									<select class="chosen-select" data-placeholder="Closing Time">
-										<!-- Hours added via JS (this is only for demo purpose) -->
-									</select>
-								</div>
-							</div>
-							<!-- Day / End -->
-
-							<!-- Day -->
-							<div class="row opening-day js-demo-hours">
-								<div class="col-md-2"><h5>Wednesday</h5></div>
-								<div class="col-md-5">
-									<select class="chosen-select" data-placeholder="Opening Time">
-										<!-- Hours added via JS (this is only for demo purpose) -->
-									</select>
-								</div>
-								<div class="col-md-5">
-									<select class="chosen-select" data-placeholder="Closing Time">
-										<!-- Hours added via JS (this is only for demo purpose) -->
-									</select>
-								</div>
-							</div>
-							<!-- Day / End -->
-
-							<!-- Day -->
-							<div class="row opening-day js-demo-hours">
-								<div class="col-md-2"><h5>Thursday</h5></div>
-								<div class="col-md-5">
-									<select class="chosen-select" data-placeholder="Opening Time">
-										<!-- Hours added via JS (this is only for demo purpose) -->
-									</select>
-								</div>
-								<div class="col-md-5">
-									<select class="chosen-select" data-placeholder="Closing Time">
-										<!-- Hours added via JS (this is only for demo purpose) -->
-									</select>
-								</div>
-							</div>
-							<!-- Day / End -->
-
-							<!-- Day -->
-							<div class="row opening-day js-demo-hours">
-								<div class="col-md-2"><h5>Friday</h5></div>
-								<div class="col-md-5">
-									<select class="chosen-select" data-placeholder="Opening Time">
-										<!-- Hours added via JS (this is only for demo purpose) -->
-									</select>
-								</div>
-								<div class="col-md-5">
-									<select class="chosen-select" data-placeholder="Closing Time">
-										<!-- Hours added via JS (this is only for demo purpose) -->
-									</select>
-								</div>
-							</div>
-							<!-- Day / End -->
-
-							<!-- Day -->
-							<div class="row opening-day js-demo-hours">
-								<div class="col-md-2"><h5>Saturday</h5></div>
-								<div class="col-md-5">
-									<select class="chosen-select" data-placeholder="Opening Time">
-										<!-- Hours added via JS (this is only for demo purpose) -->
-									</select>
-								</div>
-								<div class="col-md-5">
-									<select class="chosen-select" data-placeholder="Closing Time">
-										<!-- Hours added via JS (this is only for demo purpose) -->
-									</select>
-								</div>
-							</div>
-							<!-- Day / End -->
-
-							<!-- Day -->
-							<div class="row opening-day js-demo-hours">
-								<div class="col-md-2"><h5>Sunday</h5></div>
-								<div class="col-md-5">
-									<select class="chosen-select" data-placeholder="Opening Time">
-										<!-- Hours added via JS (this is only for demo purpose) -->
-									</select>
-								</div>
-								<div class="col-md-5">
-									<select class="chosen-select" data-placeholder="Closing Time">
-										<!-- Hours added via JS (this is only for demo purpose) -->
-									</select>
-								</div>
-							</div>
-							<!-- Day / End -->
-
+					
 						</div>
 						<!-- Switcher ON-OFF Content / End -->
 

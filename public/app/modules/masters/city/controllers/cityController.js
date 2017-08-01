@@ -1,4 +1,4 @@
-app.controller('cityController',function ($scope, $auth, $state, $http, $rootScope) {
+app.controller('cityController',function ($scope, $auth, $state, $http, $rootScope,$timeout) {
 
    
 		$scope.master = {};

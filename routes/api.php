@@ -36,6 +36,8 @@ Route::group(["middleware"=>"cors"], function(){
 			Route::post('submitMasterState', 'MasterController@submitMasterState');	
 			Route::post('submitMasterTime', 'MasterController@submitMasterTime');	
 			Route::post('submitMasterWeekdays', 'MasterController@submitMasterWeekdays');	
+
+			Route::post('getMasterDetails', 'MasterController@getMasterDetails');		
 			
 
 Route::group(["middleware"=>"jwt.auth"], function(){
@@ -43,7 +45,7 @@ Route::group(["middleware"=>"jwt.auth"], function(){
 			
 				
 
-			Route::post('getSupplierList', 'SupplierController@getSupplierList');		
+				
 			Route::post('supplierAdd', 'SupplierController@supplierAdd');		
 			Route::post('getSupplierById/{id}', 'SupplierController@getSupplierById');
 			Route::post('supplierUpdate', 'SupplierController@supplierUpdate');		

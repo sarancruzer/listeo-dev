@@ -27,6 +27,19 @@ class MasterController extends Controller
         }
         return response()->json(['error' => "Authentication Not Provided"],401);
     }
+
+    public function getMasterDetails(Request $request){
+        //  $token = $this->getToken($request);
+        //  $user = JWTAuth::toUser($token);
+         $input = $request->all();
+        foreach ($input as $key => $value) {
+            $lists[$value] = DB::table($value)->orderby('id')->get();
+        }
+         $result['info'] = $lists;
+         return response()->json(['result' => $result]);
+
+
+    }
     
       public function getAmenities(Request $request){
         //  $token = $this->getToken($request);

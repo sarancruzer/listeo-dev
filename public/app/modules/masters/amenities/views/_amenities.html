@@ -1,32 +1,41 @@
-    
 
 <div class="row">
 
   <div class="notification error closeable" ng-show="mError">
 				<p><span>Error!</span> {{mError}}</p>
-				
-			</div>
+	</div>
 
-			<div class="notification success closeable" ng-show="mSuccess">
-				<p><span>Success!</span>{{mSuccess}}</p>
-			
-      </div>
+	<div class="notification success closeable" ng-show="mSuccess">
+	<p><span>Success!</span>{{mSuccess}}</p>
+  </div>
+
+
+  <!-- Right Side Content / End -->
+			<div class="right-side">
+				<div class="header-widget">
+					<a href="#sign-in-dialog" class="sign-in popup-with-zoom-anim"><i class="sl sl-icon-login"></i> Sign In</a>
+				</div>
+			</div>
+      <!-- Right Side Content / End -->
       
 
-  <div class="col-md-4">
+
+      
+
+  <!-- <div class="col-md-4">
  <div class="add-listing-section ">
 
-						<!-- Headline -->
+						
 						<div class="add-listing-headline">
 							<h3><i class="sl sl-icon-location"></i> Amenities</h3>
 						</div>
 
 						<div class="submit-section">
-             <form name="masterForm" method="post" ng-submit="submitMaster(masterForm)" ng-validate="validationOptions"  >
-							<!-- Row -->
+             	<form name="masterForm" method="post" ng-submit="submitMaster(masterForm)" ng-validate="validationOptions"  >
+						
 							<div class="row with-forms">
 
-										<!-- Address -->
+						
 								<div class="col-md-12">
 									<h5>Name</h5>
 									<input type="text" placeholder="Enter amenities" name="amenities" ng-model="master.name" >
@@ -39,16 +48,17 @@
                 
 
 							</div>
-              <!-- Row / End -->
               </form>
 
 						</div>
 					</div>
           
-  </div>
+  </div> 
+
+  -->
 
 
-  <div class="col-md-8">
+  <div class="col-md-12">
           <div class="add-listing-section">
 
 						<!-- Headline -->
@@ -63,7 +73,7 @@
 					<th>#</th>
           <th>Name</th>
           <th>Last modified</th>
-          <th width="80">Actions</th>
+          <th width="100">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -72,9 +82,12 @@
           <td>{{detail.name}}</td>
           <td>{{detail.updated_at }}</td>
           <td>
-             
-              <a href="javascript:;" class="button border with-icon " ng-click="editMaster(detail)" ><i class="fa fa-edit"></i> </a>
-               <a href="#delete-in-dialog" class="button border with-icon "><i class="fa fa-trash-o"></i> </a>
+			  <a href="#sign-in-dialog" class="sign-in popup-with-zoom-anim " ng-click="editMaster(detail)"><i class="fa fa-edit"></i></a>
+			  <a href="#delete-in-dialog" class="sign-in popup-with-zoom-anim"><i class="fa fa-trash-o"></i></a>
+			   
+				<!-- <a href="javascript:;" class="button border with-icon " ng-click="editMaster(detail)" ><i class="fa fa-edit"></i> </a>
+               <a href="#delete-in-dialog" class="button border with-icon "><i class="fa fa-trash-o"></i> </a> -->
+               
           </td>          
          
         </tr> 
@@ -100,17 +113,41 @@
     </div>
 
 
-  </div>     
-       
+  </div>   
 
- 
+        	<!-- Sign In Popup -->
+			<div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
 
+				<div class="small-dialog-header">
+					<h3>Sign In</h3>
+				</div>
 
-      
+				<!--Tabs -->
+				<div class="sign-in-form style-1">
 
-      <!-- Scripts -->
+					<div class="tabs-container alt">
 
+						<!-- Register -->
+						<div class="tab-content" id="tab2" >
 
+	
+					<form name="masterForm" method="post" ng-submit="submitMaster(masterForm)" ng-validate="validationOptions" class="register" >
+								
+							<p class="form-row form-row-wide">
+								<label for="username2">Name:
+									<i class="im im-icon-Male"></i>
+									<input type="text" placeholder="Enter amenities" name="amenities" ng-model="master.name" class="input-text">
+								</label>
+							</p>
+							<!-- <input type="submit" class="button border fw margin-top-10"  value="Submit" /> -->
+							<button type="submit" class="button border ">submit</button>
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- Sign In Popup / End -->
 
 
 <style>

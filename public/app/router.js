@@ -128,7 +128,7 @@ app.run(['$rootScope', '$location','$auth','$state', function ($rootScope, $loca
         if($location.path() == "/auth" || $location.path() == "/")
         {
             if ($auth.isAuthenticated()) {          
-                $location.path("/profile");
+                $location.path("/auth");
               }
         }
       }

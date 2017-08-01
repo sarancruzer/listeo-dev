@@ -13,7 +13,6 @@
 ================================================== -->
 <link rel="stylesheet" href="assets/ui/css/style.css">
 <link rel="stylesheet" href="assets/ui/css/colors/main.css" id="colors">
-
    
     </head>
     <body >
@@ -37,6 +36,8 @@
 <script type="text/javascript" src="assets/ui/scripts/jquery-ui.min.js"></script>
 <script type="text/javascript" src="assets/ui/scripts/tooltips.min.js"></script>
 <script type="text/javascript" src="assets/ui/scripts/custom.js"></script>
+
+
 
 	<!-- jQuery -->
   

@@ -53,6 +53,7 @@ app.controller('amenitiesController',function ($scope, $auth, $state, $http, $ro
 	            $scope.mSuccess=res.msg;
 				$scope.mError="";
 				$scope.master = {};
+		
 				
 						//10 seconds delay
 				$timeout( function(){

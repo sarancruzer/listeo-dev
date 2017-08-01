@@ -382,21 +382,43 @@ $(document).ready(function(){
 		});
 	});
 
-	$('.popup-with-zoom-anim').magnificPopup({
-		 type: 'inline',
 
-		 fixedContentPos: false,
-		 fixedBgPos: true,
+	$(document.body).on("click", ".popup-with-zoom-anim", function(e) {
 
-		 overflowY: 'auto',
+            e.preventDefault();
 
-		 closeBtnInside: true,
-		 preloader: false,
+            $(this).magnificPopup({
+                type: 'inline',
 
-		 midClick: true,
-		 removalDelay: 300,
-		 mainClass: 'my-mfp-zoom-in'
-	});
+				fixedContentPos: false,
+				fixedBgPos: true,
+
+				overflowY: 'auto',
+
+				closeBtnInside: true,
+				preloader: false,
+
+				midClick: true,
+				removalDelay: 300,
+				mainClass: 'my-mfp-zoom-in'
+            }).magnificPopup('open');
+		}); 
+		
+	// $('.popup-with-zoom-anim').magnificPopup({
+	// 	 type: 'inline',
+
+	// 	 fixedContentPos: false,
+	// 	 fixedBgPos: true,
+
+	// 	 overflowY: 'auto',
+
+	// 	 closeBtnInside: true,
+	// 	 preloader: false,
+
+	// 	 midClick: true,
+	// 	 removalDelay: 300,
+	// 	 mainClass: 'my-mfp-zoom-in'
+	// });
 
 	$('.mfp-image').magnificPopup({
 		 type: 'image',

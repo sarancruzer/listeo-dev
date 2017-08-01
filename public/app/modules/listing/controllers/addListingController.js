@@ -6,7 +6,7 @@ $scope.success = function () {
 
 
     $scope.getMasterDetails = function(){
-            var data = ["individual_category","organisation_category","service_provider_category"]
+            var data = ["m_amenities","m_category","m_city","m_state","m_time","m_weekdays"]
             var request = {
                 method:"POST",
                 url:"/api/getMasterDetails",
@@ -14,13 +14,17 @@ $scope.success = function () {
                 headers : {'Content-Type' : 'application/json'},
             };
             $http(request).then(function successCallback(response) {
-                
-                $scope.ind_details=response.data.result.info.individual_category;
-                $scope.org_details=response.data.result.info.organisation_category;
-                $scope.service_provider_details=response.data.result.info.service_provider_category;
+                var res = response.data.result.info;
+                $scope.amenitiesList=res.m_amenities;
+                $scope.categoryList=res.m_category;
+                $scope.cityList=res.m_city;
+                $scope.stateList=res.m_state;
+                $scope.timeList=res.m_time;
+                $scope.weekdaysList=res.m_weekdays;
+
                 console.log("---------  -------------");
-                console.log($scope.ind_details);
-                $scope.company = {};
+                console.log(res);
+               
             }, function errorCallback(response) {
                 $scope.SError=response.data.error;
                 if(response.status == 404){

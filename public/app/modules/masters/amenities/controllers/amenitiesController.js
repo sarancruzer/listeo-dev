@@ -26,9 +26,11 @@ app.controller('amenitiesController',function ($scope, $auth, $state, $http, $ro
 				    for(var i=1;i<=response.data.result.info.last_page;i++) {          
 				      pages.push(i);
 				    }
-				    $scope.range = pages;
+					$scope.range = pages;
+					$scope.mError = "";
             }, function errorCallback(response) {
-               $scope.SpError=response.data.error;
+			   $scope.mError=response.data.error;
+			   $scope.details = [];
 			    if(response.status == 404){
 			    	$scope.mfError = response.statusText;
 			    }

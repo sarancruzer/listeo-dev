@@ -95,7 +95,7 @@
 								<label for="username2">Name:
 						<input type="text" placeholder="Enter amenities" name="amenities" id="amenities" ng-model="master.name" required class="input-text" ng-focus="true">
 						<span ng-show="masterForm.$submitted">
-						<span ng-show="masterForm.amenities.$invalid">The name is required.</span>
+						<span ng-show="masterForm.amenities.$invalid" class="aerror">The name is required.</span>
 						</label>
 							</p>
 							<!-- <input type="submit" class="button border fw margin-top-10"  value="Submit" /> -->
@@ -233,5 +233,10 @@ table.basic-table tbody td a:hover{
 }
 #sign-in-dialog .mfp-close, #small-dialog .mfp-close {
     top: 15px;
+}
+
+.aerror{
+	    font-weight: 500;
+    color: red;
 }
 </style>

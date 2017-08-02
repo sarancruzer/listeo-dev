@@ -1,11 +1,7 @@
 
 <div class="row">
 
-  <div class="notification error closeable" ng-show="mError">
-				<p><span>Error!</span> {{mError}}</p>
-	</div>
-
-	<div class="notification success closeable" ng-show="mSuccess">
+  	<div class="notification success closeable" ng-show="mSuccess">
 	<p><span>Success!</span>{{mSuccess}}</p>
   </div>
     
@@ -28,14 +24,7 @@
 					</div>
 
           <div class="add-listing-section margin-top-15">
-
-						<!-- Headline -->
-						<!-- <div class="add-listing-headline col-md-10">
-						<input type="text" placeholder="Search here..." ng-model="q" ng-keyup="($event.keyCode == 13 && searchFilter())" >
-						<button type="submit" class="button border col-md-2" >submit</button>	
-						</div> -->
-
-					
+			
 
 					<div class="clearfix"></div>
           <table class="basic-table margin-top-15">
@@ -49,6 +38,12 @@
         </tr>
         </thead>
         <tbody>
+			<tr ng-show="mError"><td colspan="4">
+				<div class="notification error closeable">
+					<p style="text-align:center"> {{mError}}</p>
+				</div>
+			</td></tr>
+
           <tr ng-repeat="detail in details">
           <td scope="row">{{$index+1}}</td>
           <td>{{detail.name}}</td>
@@ -100,7 +95,7 @@
 								<label for="username2">Name:
 						<input type="text" placeholder="Enter amenities" name="amenities" id="amenities" ng-model="master.name" required class="input-text" ng-focus="true">
 						<span ng-show="masterForm.$submitted">
-						<span ng-show="masterForm.amenities.$invalid">The name is required.</span>
+						<span ng-show="masterForm.amenities.$invalid" class="aerror">The name is required.</span>
 						</label>
 							</p>
 							<!-- <input type="submit" class="button border fw margin-top-10"  value="Submit" /> -->
@@ -126,7 +121,7 @@
 						<!-- Register -->
 						<div class="tab-content" id="tab2" >
 							<p class="form-row form-row-wide">
-							<h2>Are you sure want to delete?</h2>	
+							<p>Are you sure want to delete?</p>	
 							</p>
 							<!-- <input type="submit" class="button border fw margin-top-10"  value="Submit" /> -->
 							<button type="button" class="button border " ng-click="deleteMaster()">submit</button>
@@ -192,7 +187,7 @@
     color: #666;
     background-color: #e4e4e4;
     border-radius: 50%;
-    top: 28px;
+    top: 15px;
     right: 40px;
     width: 40px;
     height: 40px;
@@ -220,5 +215,28 @@ table.basic-table tbody td a:hover{
 #dashboard #titlebar {
     margin: 0 0 5px 0;
  
+}
+
+.main-search-input {
+    margin-top: 10px;
+}
+.sign-in-form .button {
+    float: right;
+}
+.style-1 .tabs-container .tab-content {
+    padding: 10px 0 0 0;
+}
+
+.small-dialog-header {
+    padding: 20px 25px;
+ 
+}
+#sign-in-dialog .mfp-close, #small-dialog .mfp-close {
+    top: 15px;
+}
+
+.aerror{
+	    font-weight: 500;
+    color: red;
 }
 </style>

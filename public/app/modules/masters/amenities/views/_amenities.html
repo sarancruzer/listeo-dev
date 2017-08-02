@@ -124,7 +124,7 @@
 							<p>Are you sure want to delete?</p>	
 							</p>
 							<!-- <input type="submit" class="button border fw margin-top-10"  value="Submit" /> -->
-							<button type="button" class="button border " ng-click="deleteMaster()">submit</button>
+							<button type="button" class="button border closed" ng-click="deleteMaster()">submit</button>
 							</form>
 						</div>
 
@@ -240,3 +240,25 @@ table.basic-table tbody td a:hover{
     color: red;
 }
 </style>
+<script type="javascript">
+    $(.closed).on("click", ".popup-with-zoom-anim", function(e) {
+
+            e.preventDefault();
+
+            $(this).magnificPopup({
+                type: 'inline',
+
+				fixedContentPos: false,
+				fixedBgPos: true,
+
+				overflowY: 'auto',
+
+				closeBtnInside: true,
+				preloader: false,
+
+				midClick: true,
+				removalDelay: 300,
+				mainClass: 'my-mfp-zoom-in'
+            }).magnificPopup('open');
+		}); 
+</script>

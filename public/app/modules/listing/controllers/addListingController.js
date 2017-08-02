@@ -1,9 +1,4 @@
 app.controller('addListingController',function ($scope, $auth, $state, $http, $rootScope) {
-console.log("success");
-$scope.success = function () {
-           alert('haiyooooo');
-}
-
 
     $scope.getMasterDetails = function(){
             var data = ["m_amenities","m_category","m_city","m_state","m_time","m_weekdays"]
@@ -24,9 +19,9 @@ $scope.success = function () {
 
                 console.log("---------  -------------");
                 console.log(res);
-               
+               $scope.LError = "";
             }, function errorCallback(response) {
-                $scope.SError=response.data.error;
+                $scope.LError=response.data.error;
                 if(response.status == 404){
                     $scope.CPError = response.statusText;
                 }
@@ -35,6 +30,62 @@ $scope.success = function () {
         }
 
         $scope.getMasterDetails();
+
+        $scope.addListing = function(form){
+		if(form.validate()){
+			var request = {
+				method:"POST",
+				url:"/api/addListing",
+				data:{"info":$scope.listing},
+				headers : {'Content-Type' : 'application/json'},
+			}
+			$http(request).then(function successCallback(response) {
+				var res = response.data.result;
+				
+	            $scope.mSuccess=res.msg;
+				$scope.mError="";
+						//10 seconds delay
+				$timeout( function(){
+					$scope.LSuccess = false;
+					$scope.LError=false;
+				}, $rootScope.showTime );
+		
+				$scope.init(1);
+
+			}, function errorCallback(response) {
+				$scope.LError=response.data.error;
+			    if(response.status == 404){
+			    	$scope.mfError = response.statusText;
+			    }
+			});
+		}
+			
+    }
+
+
         
 
 });
+
+app.directive('chosen', function($timeout) {
+
+  var linker = function(scope, element, attr) {
+
+    scope.$watch('categoryList', function() {
+      $timeout(function() {
+        element.trigger('chosen:updated');
+      }, 0, false);
+    }, true);
+
+    $timeout(function() {
+      element.chosen();
+    }, 0, false);
+  };
+
+  return {
+    restrict: 'A',
+    link: linker
+  };
+});
+
+

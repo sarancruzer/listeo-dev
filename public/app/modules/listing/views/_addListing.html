@@ -15,7 +15,7 @@
 						<div class="row with-forms">
 							<div class="col-md-12">
 								<h5>Listing Title <i class="tip" data-tip-content="Name of your business"></i></h5>
-								<input class="search-field" type="text" value=""/>
+								<input class="search-field" type="text" name="business_name" ng-model="listing.business_name" />
 							</div>
 						</div>
 
@@ -25,21 +25,16 @@
 							<!-- Status -->
 							<div class="col-md-6">
 								<h5>Category</h5>
-								<select class="chosen-select-no-single" name="category" ng-model="category" ng-options="item.id as item.name for item in categoryList ">
-									<option label="blank">Select Category</option>	
-									<option>Eat & Drink</option>
-									<option>Shops</option>
-									<option>Hotels</option>
-									<option>Restaurants</option>
-									<option>Fitness</option>
-									<option>Events</option>
+								
+								<select chosen="" data-placeholder="Choose a Category..." class="chosen-select-no-single" ng-model="listing.category" ng-options="item.id as item.name for item in categoryList track by item.id" >
 								</select>
+										
 							</div>
 
 							<!-- Type -->
 							<div class="col-md-6">
 								<h5>Keywords <i class="tip" data-tip-content="Maximum of 15 keywords related with your business"></i></h5>
-								<input type="text" placeholder="Keywords should be separated by commas">
+								<input type="text" placeholder="Keywords should be separated by commas" name="keywords" ng-model="listing.keywords">
 							</div>
 
 						</div>
@@ -64,34 +59,27 @@
 								<!-- City -->
 								<div class="col-md-6">
 									<h5>City</h5>
-									<select class="chosen-select-no-single" name="city" ng-model="city" ng-options="item.id as item.name for item in cityList ">
-										<option label="blank">Select City</option>	
-										<option>New York</option>
-										<option>Los Angeles</option>
-										<option>Chicago</option>
-										<option>Houston</option>
-										<option>Phoenix</option>
-										<option>San Diego</option>
-										<option>Austin</option>
-									</select>
+							
+								<select chosen="" data-placeholder="Choose a City..." class="chosen-select-no-single" ng-model="listing.city" ng-options="item.id as item.name for item in cityList track by item.id" ></select>
+																
 								</div>
 
 								<!-- Address -->
 								<div class="col-md-6">
 									<h5>Address</h5>
-									<input type="text" placeholder="e.g. 964 School Street">
+									<input type="text" placeholder="e.g. 964 School Street" name="address" ng-model="listing.address" >
 								</div>
 
 								<!-- City -->
 								<div class="col-md-6">
 									<h5>State</h5>
-									<input type="text" ng-model="state">
+									<input type="text" name="state" ng-model="listing.state">
 								</div>
 
 								<!-- Zip-Code -->
 								<div class="col-md-6">
 									<h5>Zip-Code</h5>
-									<input type="text">
+									<input type="text" name="zipcode" ng-model="listing.zipcode">
 								</div>
 
 							</div>
@@ -130,7 +118,7 @@
 						<!-- Description -->
 						<div class="form">
 							<h5>Description</h5>
-							<textarea class="WYSIWYG" name="description" cols="40" rows="3" id="summary" spellcheck="true" ng-model="description"></textarea>
+							<textarea class="WYSIWYG" name="description" cols="40" rows="3" id="summary" spellcheck="true" ng-model="listing.description"></textarea>
 						</div>
 
 						<!-- Row -->
@@ -139,19 +127,19 @@
 							<!-- Phone -->
 							<div class="col-md-4">
 								<h5>Phone <span>(optional)</span></h5>
-								<input type="text" name="phone" ng-model="phone" >
+								<input type="text" name="phone" ng-model="listing.phone" >
 							</div>
 
 							<!-- Website -->
 							<div class="col-md-4">
 								<h5>Website <span>(optional)</span></h5>
-								<input type="text" name="website" ng-model="website">
+								<input type="text" name="website" ng-model="listing.website">
 							</div>
 
 							<!-- Email Address -->
 							<div class="col-md-4">
 								<h5>E-mail <span>(optional)</span></h5>
-								<input type="text" name="email" ng-model="email">
+								<input type="text" name="email" ng-model="listing.email">
 							</div>
 
 						</div>
@@ -164,19 +152,19 @@
 							<!-- Phone -->
 							<div class="col-md-4">
 								<h5 class="fb-input"><i class="fa fa-facebook-square"></i> Facebook <span>(optional)</span></h5>
-								<input type="text" placeholder="https://www.facebook.com/" name="facebook" ng-model="facebook">
+								<input type="text" placeholder="https://www.facebook.com/" name="facebook" ng-model="listing.facebook">
 							</div>
 
 							<!-- Website -->
 							<div class="col-md-4">
 								<h5 class="twitter-input"><i class="fa fa-twitter"></i> Twitter <span>(optional)</span></h5>
-								<input type="text" placeholder="https://www.twitter.com/" name="twitter" ng-model="twitter">
+								<input type="text" placeholder="https://www.twitter.com/" name="twitter" ng-model="listing.twitter">
 							</div>
 
 							<!-- Email Address -->
 							<div class="col-md-4">
 								<h5 class="gplus-input"><i class="fa fa-google-plus"></i> Google Plus <span>(optional)</span></h5>
-								<input type="text" placeholder="https://plus.google.com" name="googleplus" ng-model="googleplus">
+								<input type="text" placeholder="https://plus.google.com" name="googleplus" ng-model="listing.googleplus">
 							</div>
 
 						</div>
@@ -216,16 +204,12 @@
 							<div class="row opening-day" ng-repeat="row in weekdaysList">
 								<div class="col-md-2"><h5>{{row.name}}</h5></div>
 								<div class="col-md-5">
-									<input type="hidden" ng-model="weekdays">
-									<select class="chosen-select" name="city" ng-model="openingTime" ng-options="item.id as item.name for item in timeList " data-placeholder="Opening Time">
-										<option label="Opening Time"></option>
-									</select>
+								<select chosen="" data-placeholder="Choose a Opening tiime..." class="" ng-model="listing.opening_time" ng-options="item.id as item.name for item in timeList track by item.id" ></select>
+									
 								</div>
 								<div class="col-md-5">
-									<select class="chosen-select" name="city" ng-model="closingTime" ng-options="item.id as item.name for item in timeList " data-placeholder="Closing Time">
-										<option label="Closing Time"></option>
-										
-									</select>
+								<select chosen="" data-placeholder="Choose a Closing tiime..." class="" ng-model="listing.closing_time" ng-options="item.id as item.name for item in timeList track by item.id" ></select>
+							
 								</div>
 							</div>
 							<!-- Day / End -->
@@ -286,3 +270,15 @@
 			</div>
 
 		</div>
+
+
+		
+	<script type="text/javascript" src="assets/ui/scripts/custom.js"></script>
+	
+	<style>
+
+		#add-listing > div:nth-child(5) > div.switcher-content > div:nth-child > div:nth-child > div:nth-child{
+			display: none;
+		}
+
+		</style>

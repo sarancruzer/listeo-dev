@@ -122,6 +122,23 @@
 
 					</ul>
 				</div>
+
+
+
+				 <div class="pagination-container margin-top-30 margin-bottom-0">
+               	<nav class="pagination">
+		<ul >
+			<li ng-show="currentPage != 1"><a href="javascript:void(0)" ng-click="init(1)">&laquo;</a></li>
+			<li ng-show="currentPage != 1"><a href="javascript:void(0)" ng-click="init(currentPage-1)">&lsaquo; Prev</a></li>
+			<li ng-repeat="i in range" ><a href="javascript:void(0)" ng-class="{'current-page' : currentPage == i}" ng-click="init(i)">{{i}}</a>
+			</li>
+			<li ng-show="currentPage != totalPages"><a href="javascript:void(0)" ng-click="init(currentPage+1)">Next &rsaquo;</a></li>
+			<li ng-show="currentPage != totalPages"><a href="javascript:void(0)" ng-click="init(totalPages)">&raquo;</a></li>
+		</ul>
+					</nav>
+		</div>
+			
+
 			</div>
 
 

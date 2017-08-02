@@ -60,6 +60,7 @@ app.controller('amenitiesController',function ($scope, $auth, $state, $http, $ro
 				$scope.mError="";
 				$scope.master = {};
 				form.masterForm.$submitted=false;
+				$(".mfp-close").click();
 						//10 seconds delay
 				$timeout( function(){
 					$scope.mSuccess = false;

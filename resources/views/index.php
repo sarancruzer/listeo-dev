@@ -62,6 +62,10 @@
     <script src="app/modules/auth/controllers/logoutController.js"></script>
 
     <script src="app/modules/listing/controllers/addListingController.js"></script>
+    <script src="app/modules/bookmarks/controllers/bookmarksController.js"></script>
+    <script src="app/modules/listing/controllers/mylistingController.js"></script>
+    
+    
     <script src="app/modules/masters/amenities/controllers/amenitiesController.js"></script>
     <script src="app/modules/masters/category/controllers/categoryController.js"></script>
     <script src="app/modules/masters/city/controllers/cityController.js"></script>

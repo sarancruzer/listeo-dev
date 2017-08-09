@@ -1,9 +1,9 @@
 
 # listeo-dev
 
-💁 *Zemke/starter-laravel-angular has been upgraded to AngularJS 1.5.8.*
+ - starter-laravel-angular has been upgraded to AngularJS 1.5.8.*
 
-💁 *Zemke/starter-laravel-angular has been upgraded to Laravel 5.3. You can pull the changes and run* `rm composer.lock && composer install --prefer-dist --no-scripts` *to merge the upgrade.*
+- starter-laravel-angular has been upgraded to Laravel 5.3. You can pull the changes and run* `rm composer.lock && composer install --prefer-dist --no-scripts` *to merge the upgrade.*
 
 # Laravel and AngularJS Starter Application
 

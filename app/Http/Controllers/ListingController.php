@@ -119,7 +119,7 @@ class ListingController extends Controller
 
              foreach ($data['gallery'] as $key => $value) {
 
-                $destinationPath = 'uploads/'.$input["info"]["company"];
+                $destinationPath = 'uploads/gallery/'.$input["info"]["company"];
                 $file = $request->file('logo');
                 $upfile = $file->move($destinationPath,$file->getClientOriginalName());
 

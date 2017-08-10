@@ -13,7 +13,10 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
                 .state('adminLayout', {
                     templateUrl: '/app/shared/adminTemplate.html',
                 })
-                .state('auth', {
+                .state('landingLayout', {
+                    templateUrl: '/app/shared/landingTemplate.html',
+                })
+                .state('landingLayout.auth', {
                     url: '/auth',
                     templateUrl: '/app/modules/auth/views/_landingPage.html',
                     controller: 'authController as auth'
@@ -122,8 +125,6 @@ app.run(['$rootScope', '$location','$auth','$state', function ($rootScope, $loca
       else
       { 
         $rootScope.authenticated = true;
-        $rootScope.userId = localStorage.getItem('userId');
-        $rootScope.usename = localStorage.getItem('usename');
         
         if($location.path() == "/auth" || $location.path() == "/")
         {
@@ -134,14 +135,13 @@ app.run(['$rootScope', '$location','$auth','$state', function ($rootScope, $loca
       }
   });
 
-
-  $rootScope.userType = "admin";  
-  $rootScope.userType = localStorage.getItem('userType');
-  $rootScope.userId = localStorage.getItem('userId');
-  $rootScope.usename = localStorage.getItem('usename');
-  $rootScope.userTypeId = localStorage.getItem('userTypeId');
-  $rootScope.paginate = localStorage.getItem('paginate');
+  $rootScope.userType = localStorage.getItem('email');
+  $rootScope.userId = localStorage.getItem('username');
+  $rootScope.email = localStorage.getItem('userId');
+  $rootScope.username = localStorage.getItem('userType');
   $rootScope.avatar = localStorage.getItem('avatar');
+  $rootScope.authenticated = localStorage.getItem('authenticated');
+  
   $rootScope.showTime = 5000;
 
 }]);

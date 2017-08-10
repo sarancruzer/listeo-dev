@@ -1,14 +1,14 @@
 <!-- Header Container
 ================================================== -->
-<header id="header-container" class="fixed fullwidth dashboard">
+<header id="header-container" class="fixed fullwidth dashboard" ng-controller="commonController">
 
 	<!-- Header -->
 	<div id="header" class="not-sticky">
 		<div class="container">
-			
+
 			<!-- Left Side Content -->
 			<div class="left-side">
-				
+
 				<!-- Logo -->
 				<div id="logo">
 					<a href="index.html"><img src="assets/ui/images/logo.png" alt=""></a>
@@ -88,12 +88,12 @@
 								<li><a href="pages-icons.html">Icons</a></li>
 							</ul>
 						</li>
-						
+
 					</ul>
 				</nav>
 				<div class="clearfix"></div>
 				<!-- Main Navigation / End -->
-				
+
 			</div>
 			<!-- Left Side Content / End -->
 
@@ -101,18 +101,18 @@
 			<div class="right-side">
 				<!-- Header Widget -->
 				<div class="header-widget">
-					
+
 					<!-- User Menu -->
-					<div class="user-menu">
+					<div class="user-menu "  ng-class="{'active': isActive}" ng-click="activeButton()" >
 						<div class="user-name"><span><img src="assets/ui/images/dashboard-avatar.jpg" alt=""></span>Tom Perrin</div>
 						<ul>
 							<li><a href="#/dashboard"><i class="sl sl-icon-settings"></i> Dashboard</a></li>
 							<li><a href="#/message"><i class="sl sl-icon-envelope-open"></i> Messages</a></li>
 							<li><a href="#/myprofile"><i class="sl sl-icon-user"></i> My Profile</a></li>
-							<li><a href="index.html"><i class="sl sl-icon-power"></i> Logout</a></li>
+							<li><a href="#/logout"><i class="sl sl-icon-power"></i> Logout</a></li>
 						</ul>
 					</div>
-					
+
 				</div>
 				<!-- Header Widget / End -->
 			</div>
@@ -127,8 +127,7 @@
 <!-- Header Container / End -->
 
 <style>
-
-	.error{
-		color:red;
-		
+	.error {
+		color: red;
 	}
+</style>

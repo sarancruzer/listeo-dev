@@ -49,9 +49,16 @@ $(document).ready(function(){
 	});
 
     /*  User Menu */
-    $('.user-menu').on('click', function(){
-		$(this).toggleClass('active');
-	});
+    // $('.user-menu').on('click', function(){
+	// 	$(this).toggleClass('active');
+	// });
+
+	 //$(document.body).on('.user-menu','click', function(){
+	// $(document.body).on("click", ".user-menu", function(e) {
+    //     //e.preventDefault();
+	// 	 console.log("user click");
+	// 	$(this).toggleClass('active');
+	// });
 
 
 	/*----------------------------------------------------*/

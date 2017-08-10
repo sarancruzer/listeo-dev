@@ -86,5 +86,55 @@ class AuthenticateController extends Controller
       return response()->json(['error'=>'No Results Found'],401);
 
   }
+
+  public function userRegister(Request $request){
+        $input = $request->all();
+    
+        $d = $input['info'];
+        $data['name'] = $d['username'];
+        $data['email'] = $d['email'];
+        $data['user_type'] = "user";
+        $data['password'] = Hash::make($d['password']);
+        
+        $regId = DB::table('users')->insertGetId($data);
+        if($regId){
+            $result['result'] = 'Your registration has been completed';
+            return response()->json(['result'=>$result]);
+        }
+        return response()->json(['result'=>'Your registration failed!!'],401);
+
+  }
+
+    public function userUpdate(Request $request){
+        $input = $request->all();
+    
+        $d = $input['info'];
+        $data['name'] = $d['username'];
+        $data['email'] = $d['email'];
+        $data['mobile'] = $d['email'];
+        $data['notes'] = $d['notes'];
+        $data['twitter_link'] = $d['twitter_link'];
+        $data['facebook_link'] = $d['facebook_link'];
+        $data['googleplus_link'] = $d['googleplus_link'];
+       
+        $data['avatar'] = '';
+        if($request->hasFile('avatar')){
+                $destinationPath = 'uploads/avatar/'.$input["info"]["company"];
+                $file = $request->file('avatar');
+                $upfile = $file->move($destinationPath,$file->getClientOriginalName());
+                $data["avatar"] = $destinationPath."/".$file->getClientOriginalName();
+        }
+
+        $profileId = DB::table('users')->insertGetId($data);
+        if($profileId){
+            $result['result'] = 'Your profile has been updated successfully! ';
+            return response()->json(['result'=>$result]);
+        }
+        return response()->json(['result'=>'Your profile update failed!!'],401);
+
+  }
+
+
+
   
 }

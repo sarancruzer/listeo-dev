@@ -65,6 +65,11 @@
     <script src="app/modules/bookmarks/controllers/bookmarksController.js"></script>
     <script src="app/modules/listing/controllers/mylistingController.js"></script>
     
+    <script src="app/modules/dashboard/controllers/dashboardController.js"></script>
+    <script src="app/modules/message/controllers/messageController.js"></script>
+    
+    <script src="app/shared/commonController.js"></script>
+    
     
     <script src="app/modules/masters/amenities/controllers/amenitiesController.js"></script>
     <script src="app/modules/masters/category/controllers/categoryController.js"></script>

@@ -23,6 +23,7 @@ Route::group(["middleware"=>"cors"], function(){
 
 			Route::post('authenticate', 'AuthenticateController@authenticate');
 
+	// ----------------------------------
 			Route::post('getAmenities', 'MasterController@getAmenities');
 			Route::post('getCategory', 'MasterController@getCategory');
 			Route::post('getCity', 'MasterController@getCity');
@@ -37,49 +38,20 @@ Route::group(["middleware"=>"cors"], function(){
 			Route::post('submitMasterTime', 'MasterController@submitMasterTime');	
 			Route::post('submitMasterWeekdays', 'MasterController@submitMasterWeekdays');	
 
-			Route::post('getMasterDetails', 'MasterController@getMasterDetails');		
+			Route::post('getMasterDetails', 'MasterController@getMasterDetails');	
+
+			Route::post('getListing', 'ListingController@index');		
+			Route::post('addListing', 'ListingController@create');		
+			Route::post('editListing', 'ListingController@edit');		
+			Route::post('updateListing', 'ListingController@update');		
+			Route::post('viewListing', 'ListingController@show');		
+			Route::post('deleteListing', 'ListingController@delete');		
+
 			
 
 Route::group(["middleware"=>"jwt.auth"], function(){
 
-			
-				
 
-				
-			Route::post('supplierAdd', 'SupplierController@supplierAdd');		
-			Route::post('getSupplierById/{id}', 'SupplierController@getSupplierById');
-			Route::post('supplierUpdate', 'SupplierController@supplierUpdate');		
-			Route::post('supplierDelete', 'SupplierController@supplierDelete');
-
-			Route::post('getProductList', 'ProductController@getProductList');		
-			Route::post('productAdd', 'ProductController@productAdd');		
-			Route::post('getProductById/{id}', 'ProductController@getProductById');
-			Route::post('productUpdate', 'ProductController@productUpdate');		
-			Route::post('productDelete', 'ProductController@productDelete');		
-			Route::post('getAllSuppliers', 'ProductController@getAllSuppliers');		
-			
-
-			
-			Route::post('getProductinwardList', 'ProductController@getProductinwardList');	
-			Route::post('productinwardAdd', 'ProductController@productinwardAdd');		
-			Route::post('getProductinwardById/{id}', 'ProductController@getProductinwardById');
-			Route::post('productinwardUpdate', 'ProductController@productinwardUpdate');		
-			Route::post('productinwardDelete', 'ProductController@productinwardDelete');	
-			Route::post('getAllProducts', 'ProductController@getAllProducts');	
-			Route::post('getProductCost', 'ProductController@getProductCost');	
-			
-
-			Route::post('productInward', 'ProductController@productInward');	
-			Route::post('profile', 'AuthenticateController@profile');	
-			Route::post('getProductinwardDetailById', 'ProductController@getProductinwardDetailById');	
-			Route::post('getStockList', 'ProductController@getStockList');	
-			
-			
-
-			
-			
-			
-			
 			
 
 		

@@ -13,24 +13,24 @@
             </ul>
 
              <ul data-submenu-title="Masters">
-                <li><a href="#/amenities"><i class="sl sl-icon-settings"></i> Amenities</a></li>
-                <li><a href="#/category"><i class="sl sl-icon-envelope-open"></i> Category </a></li>
-                <li><a href="#/city"><i class="sl sl-icon-envelope-open"></i> City </a></li>
-                <li><a href="#/state"><i class="sl sl-icon-envelope-open"></i> State </a></li>
-                <li><a href="#/time"><i class="sl sl-icon-envelope-open"></i> Time </a></li>
-                <li><a href="#/weekdays"><i class="sl sl-icon-envelope-open"></i> Weekdays </a></li>
+                <li ng-class="url == '/amenities' ? 'active':''"><a href="#/amenities"><i class="sl sl-icon-settings"></i> Amenities</a></li>
+                <li ng-class="url == '/category' ? 'active':''"><a href="#/category"><i class="sl sl-icon-envelope-open"></i> Category </a></li>
+                <li ng-class="url == '/city' ? 'active':''"><a href="#/city"><i class="sl sl-icon-envelope-open"></i> City </a></li>
+                <li ng-class="url == '/state' ? 'active':''"><a href="#/state"><i class="sl sl-icon-envelope-open"></i> State </a></li>
+                <li ng-class="url == '/time' ? 'active':''"><a href="#/time"><i class="sl sl-icon-envelope-open"></i> Time </a></li>
+                <li ng-class="url == '/weekdays' ? 'active':''"><a href="#/weekdays"><i class="sl sl-icon-envelope-open"></i> Weekdays </a></li>
             </ul>
             
             <ul data-submenu-title="Listings">
-                <li><a href="#/mylisting"><i class="sl sl-icon-layers"></i> Manage Listing</a></li>
-                <li><a href="#/reviews"><i class="sl sl-icon-star"></i> Reviews</a></li>
-                <li><a href="#/bookmarks"><i class="sl sl-icon-heart"></i> Bookmarks</a></li>
-                <li class="active"><a href="#/addListing"><i class="sl sl-icon-plus"></i> Add Listing</a></li>
+                <li ng-class="url == '/mylisting' ? 'active':''"><a href="#/mylisting"><i class="sl sl-icon-layers"></i> Manage Listing</a></li>
+                <li ng-class="url == '/reviews' ? 'active':''"><a href="#/reviews"><i class="sl sl-icon-star"></i> Reviews</a></li>
+                <li ng-class="url == '/bookmarks' ? 'active':''"><a href="#/bookmarks"><i class="sl sl-icon-heart"></i> Bookmarks</a></li>
+                <li ng-class="url == '/addListing' ? 'active':''"><a href="#/addListing"><i class="sl sl-icon-plus"></i> Add Listing</a></li>
             </ul>   
 
             <ul data-submenu-title="Account">
-                <li><a href="#/myprofile"><i class="sl sl-icon-user"></i> My Profile</a></li>
-                <li><a href="index.html"><i class="sl sl-icon-power"></i> Logout</a></li>
+                <li ng-class="url == '/myprofile' ? 'active':''"><a href="#/myprofile"><i class="sl sl-icon-user"></i> My Profile</a></li>
+                <li ng-class="url == '/amenities' ? 'active':''"><a href="index.html"><i class="sl sl-icon-power"></i> Logout</a></li>
             </ul>
 
         </div>
